@@ -31,16 +31,16 @@ class Callback():
 
 class TrainEvalCallback(Callback):
   def begin_fit(self):
-    self.run.n_epoch=0.
+    self.run.n_epochs=0.
     self.run.n_iter=0
 
   def after_batch(self):
     if not self.in_train: return
-    self.run.n_eopchs += 1./self.iters
+    self.run.n_epochs += 1./self.iters
     self.run.n_iter += 1
 
   def begin_epoch(self):
-    self.run.n_eopchs = self.epoch
+    self.run.n_eopn_epochschs = self.epoch
     self.model.train()
     self.run.in_train=True
 
