@@ -63,7 +63,7 @@ class TrainEvalCallback(Callback):
 
   def after_batch(self):
     if not self.in_train: return
-    self.run.n_epochs += 1./self.iter
+    self.run.n_epochs += 1./self.iters
     self.run.n_iter += 1
 
   def begin_epoch(self):
@@ -128,7 +128,7 @@ class Runner():
     self.opt.zero_grad()
 
   def all_batches(self, dl):
-    self.iter = len(dl)
+    self.iters = len(dl)
     for xb, yb in dl:
       if self.stop: break
       self.one_batch(xb, yb)
