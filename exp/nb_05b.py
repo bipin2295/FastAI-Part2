@@ -124,7 +124,7 @@ class Runner():
   def __call__(self, cb_name):
     res = False
     for cb in sorted(self.cbs, key=lambda x: x._order):
-      res = cb(cb_name) and res
+      res = cb(cb_name) or res
     return res
 
 
